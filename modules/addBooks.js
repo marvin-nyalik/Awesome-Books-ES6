@@ -1,12 +1,12 @@
-import { bookTitle } from "../index.js";
-import { bookAuthor } from "../index.js";
+/* eslint-disable import/no-cycle */
+import { bookTitle, bookAuthor } from '../index.js';
 
-export const addBooks = () => {
+const addBooks = () => {
   const bookDetails = {
     title: bookTitle.value,
     author: bookAuthor.value,
   };
-   let books = [];
+  let books = [];
 
   if (localStorage.getItem('books')) {
     books = JSON.parse(localStorage.getItem('books'));
@@ -14,3 +14,5 @@ export const addBooks = () => {
   books.push(bookDetails);
   localStorage.setItem('books', JSON.stringify(books));
 };
+
+export default addBooks;

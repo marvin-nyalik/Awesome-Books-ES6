@@ -1,7 +1,9 @@
-import { bookTitle } from "../index.js";
-import { bookAuthor } from "../index.js";
+/* eslint-disable import/no-cycle */
+import { bookTitle, bookAuthor } from '../index.js';
 
-export const clearField = () => {
+const clearField = () => {
   bookTitle.value = '';
   bookAuthor.value = '';
 };
+
+export default clearField;

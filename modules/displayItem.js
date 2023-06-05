@@ -1,8 +1,9 @@
-import { addBooks } from "../modules/addBooks.js";
-import { displayBooks } from "../modules/displayBooks.js";
-import { clearField } from "../modules/clearField.js";
+/* eslint-disable import/no-cycle */
+import addBooks from './addBooks.js';
+import displayBooks from './displayBooks.js';
+import clearField from './clearField.js';
 
-export const displayItem = () => {
+const displayItem = () => {
   addBooks();
   const updatedBooks = localStorage.getItem('books');
   const allBooks = JSON.parse(updatedBooks);
@@ -10,3 +11,4 @@ export const displayItem = () => {
   clearField();
 };
 
+export default displayItem;
