@@ -13,12 +13,14 @@ const dateTime = DateTime.local();
 const formattedDateTime = dateTime.toLocaleString(DateTime.DATETIME_FULL);
 document.getElementById('date').innerHTML = formattedDateTime;
 
-(function onReload() {
+const onReload = () => {
   if (localStorage.getItem('books')) {
     const allBooks = JSON.parse(localStorage.getItem('books'));
     displayBooks(allBooks);
   }
-}());
+};
+
+(onReload());
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();

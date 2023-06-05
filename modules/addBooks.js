@@ -11,7 +11,10 @@ const addBooks = () => {
   if (localStorage.getItem('books')) {
     books = JSON.parse(localStorage.getItem('books'));
   }
-  books.push(bookDetails);
+  if (bookDetails.title !== '' && bookDetails.value !== '') {
+    books.push(bookDetails);
+  }
+
   localStorage.setItem('books', JSON.stringify(books));
 };
 
