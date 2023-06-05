@@ -1,12 +1,16 @@
 /* eslint-disable import/no-cycle */
 import displayItem from './modules/displayItem.js';
 import displayBooks from './modules/displayBooks.js';
-
+import { DateTime } from './node_modules/luxon/src/luxon.js';
 export const form = document.querySelector('form');
 export const bookTitle = document.querySelector('.title');
 export const bookAuthor = document.querySelector('.author');
 
 displayItem();
+
+const dateTime = DateTime.local();
+const formattedDateTime = dateTime.toLocaleString(DateTime.DATETIME_FULL);
+document.getElementById('date').innerHTML = dateTime;
 
 (function onReload() {
   if (localStorage.getItem('books')) {
